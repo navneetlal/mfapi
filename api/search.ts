@@ -13,6 +13,7 @@ const handler = (request: VercelRequest, response: VercelResponse) => {
   const page = parseInt(request.query['page'] as string) || 1;
   const q = request.query['q'] as string;
 
+  if (q.length < 3) return response.status(413).send({ ...Status[413], error: { message: 'Search query must be atleast 3 character' } });
   if (perPage > 100) return response.status(413).send(Status[413]);
 
   let mf = Enumerable.from(mfList as IScheme[])

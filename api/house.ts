@@ -1,6 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import Enumerable from 'linq';
 import allowCors from '../services/allowCors';
+import type IScheme from '../interfaces/scheme';
 
 import Status from '../data/response.json';
 import mfList from '../data/mflist.json';
@@ -13,7 +14,7 @@ const handler = (request: VercelRequest, response: VercelResponse) => {
 
   if (perPage > 100) return response.status(413).send(Status[413]);
 
-  let mf = Enumerable.from(mfList as Record<string, string>[])
+  let mf = Enumerable.from(mfList as IScheme[])
     .distinct(e => e.fund_house)
     .orderBy(e => e.fund_house)
     .select(e => e.fund_house)

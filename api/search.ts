@@ -16,7 +16,7 @@ const handler = (request: VercelRequest, response: VercelResponse) => {
   if (perPage > 100) return response.status(413).send(Status[413]);
 
   let mf = Enumerable.from(mfList as IScheme[])
-  mf = !!q ? mf.where(e => !!e.scheme_name?.toLowerCase().includes(q)) : mf
+  mf = !!q ? mf.where(e => !!e.scheme_name?.toLowerCase().includes(q) || !!e.scheme_code?.toString().includes(q)) : mf
   const responseObj = {
     page,
     perPage,

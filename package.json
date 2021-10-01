@@ -1,0 +1,22 @@
+{
+  "name": "mfapi",
+  "version": "1.0.0",
+  "description": "This is api for mf, fundhouse, etc",
+  "main": "index.js",
+  "repository": "https://github.com/navneetlal/mfapi",
+  "author": "Navneet Lal Gupta <navneetlalg@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "linq": "3.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.2",
+    "@vercel/node": "^1.12.1",
+    "typescript": "^4.4.3",
+    "vercel": "^23.1.2"
+  }
+}
